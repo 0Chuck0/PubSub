@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Pub/Sub system
     const pubsub = {
         events: {}, // Object to store event names and their subscribers
-        
+
         // Method to subscribe to an event
         subscribe: function (eventName, fn) {
             // If the event doesn't exist yet, create an array for it
@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add the subscriber function to the event's array
             this.events[eventName].push(fn);
         },
-        
+
         // Method to publish an event
-        publish: function(eventName, data) {
+        publish: function (eventName, data) {
             console.log(`Someone has published ${eventName}`);
             // If there are subscribers for the event, call each subscriber function
             if (this.events[eventName]) {
@@ -23,7 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     fn(data); // Call the subscriber function with the provided data
                 });
             }
+        },
+        //Method to unsubscribe from an event
+        unsubscribe: function (eventName, fn) {
+            if (this.events[eventName]) {
+                this.events[eventName] = [];
+                console.log(`Unsubscribed from ${eventName}`);
+            }
         }
+
+
     }
 
     // Subscribe to the 'Click1' event
@@ -53,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Total count was updated");
         document.getElementById("t_count").innerHTML = data; // Update the displayed total count
     });
-
     // Function to handle clicks on the first button
     function handleClick1() {
         pubsub.publish("Click1"); // Publish the 'Click1' event
@@ -68,4 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Attach click event listeners to the buttons
     document.getElementById("click1").addEventListener('click', handleClick1);
     document.getElementById("click2").addEventListener('click', handleClick2);
+    document.getElementById("unsubscribe").addEventListener('click', () => {
+        pubsub.unsubscribe("countUpdated", (data) => {
+            console.log("Total count was updated");
+            document.getElementById("t_count").innerHTML = data; // Update the displayed total count
+        })
+    });
 });
