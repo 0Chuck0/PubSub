@@ -1,0 +1,48 @@
+html,
+body {
+    height: 100%;
+}
+h1{
+    text-align: center;
+}
+#h_div{
+    margin-bottom: 5rem;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.wrapper{
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: rgb(251, 232, 207);
+}
+button{
+    border-radius: 8px;
+    height: 2rem;
+    width: 6rem;
+}
+#c1,#c2{
+    display: block;
+    padding: 3rem;
+}
+#c1{
+    border-bottom: 1px solid black;
+    }
+p{
+    display: inline;
+    margin-left: 2rem;
+}
+
+#c3{
+    border-top: 1px solid black;
+}
+#total_counter{
+    display: flex;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+   
+}
