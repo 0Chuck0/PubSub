@@ -6,7 +6,7 @@ h1{
     text-align: center;
 }
 #h_div{
-    margin-bottom: 5rem;
+    margin-bottom : 5rem;
 }
 #container {
     display: flex;
@@ -45,4 +45,13 @@ p{
     justify-content: center;
     align-items: center;
    
+}
+#unsubscribe{
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
 }
